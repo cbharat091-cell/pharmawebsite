@@ -5,7 +5,8 @@
       "src": "final-project/manage.py",
       "use": "@vercel/python",
       "config": {
-        "maxLambdaSize": "15mb"
+        "maxLambdaSize": "15mb",
+        "runtime": "python3.9"
       }
     }
   ],
@@ -15,10 +16,5 @@
       "dest": "final-project/manage.py"
     }
   ],
-  "functions": {
-    "final-project/manage.py": {
-      "runtime": "python3.9"
-    }
-  },
   "installCommand": "pip install -r requirements.txt"
 }
