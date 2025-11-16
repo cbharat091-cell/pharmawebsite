@@ -1,6 +1,5 @@
 {
   "version": 2,
-  "rootDirectory": "final-project",
   "functions": {
     "final_pro/wsgi.py": {
       "runtime": "python3.9",
