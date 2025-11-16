@@ -2,7 +2,7 @@
   "version": 2,
   "builds": [
     {
-      "src": "final-project/manage.py",
+      "src": "final-project/final_pro/wsgi.py",
       "use": "@vercel/python",
       "config": {
         "maxLambdaSize": "15mb",
@@ -13,9 +13,12 @@
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "final-project/manage.py"
+      "dest": "final-project/final_pro/wsgi.py"
     }
   ],
   "installCommand": "pip install -r requirements.txt",
-  "buildCommand": "cd final-project && python manage.py collectstatic --noinput && python manage.py migrate --noinput"
+  "buildCommand": "cd final-project && python manage.py collectstatic --noinput && python manage.py migrate --noinput",
+  "env": {
+    "DJANGO_SETTINGS_MODULE": "final_pro.settings"
+  }
 }
