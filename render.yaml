@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: pharmawebsite
+    runtime: docker
+    repo: https://github.com/cbharat091-cell/pharmawebsite
+    dockerfilePath: ./final-project/Dockerfile
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: SECRET_KEY
+        sync: false
+      - key: DEBUG
+        value: false
+      - key: DJANGO_SETTINGS_MODULE
+        value: final_pro.settings
