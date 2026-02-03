@@ -104,7 +104,7 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
+@@ -108,45 +108,48 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
@@ -132,6 +132,11 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Add this for Vercel deployment
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# Use manifest storage only when collectstatic has run (avoids Vercel runtime crashes).
+if os.environ.get('VERCEL', ''):
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+else:
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # media folder to store uploaded media file in wedsite
 MEDIA_URL = '/media/'
@@ -149,4 +154,5 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = 'True'
 EMAIL_HOST_USER = 'medifirst444@gmail.com'
+EMAIL_HOST_PASSWORD = 'medifirst@12345'
 EMAIL_HOST_PASSWORD = 'medifirst@12345'
