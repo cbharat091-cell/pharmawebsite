@@ -18,5 +18,5 @@
   "env": {
     "DJANGO_SETTINGS_MODULE": "final_pro.settings"
   },
-  "buildCommand": "cd final-project && python manage.py collectstatic --noinput"
+  "buildCommand": "cd final-project && python manage.py migrate && python manage.py collectstatic --noinput"
 }
